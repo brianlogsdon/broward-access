@@ -2,11 +2,40 @@ const getState = (scope) => {
     return {
         store: {
         //this is where your store data lives
-        contacts: [
-				
-			],
-			images:
-			["https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png"
+        
+				markers: [
+				{
+					name: "Test 1",
+					title: "Title",
+					type: "food",
+					icon:"https://img.icons8.com/color/48/000000/ingredients.png",
+					lat: 26.15,
+					long: -80.1373
+				},
+				{
+					name: "Test 1",
+					title: "Title",
+					type: "house",
+					icon:"https://img.icons8.com/color/48/000000/sleeping-in-bed.png",
+					lat: 26.12,
+					long: -80.136
+				},
+				{
+					name: "Test 1",
+					title: "Title",
+					type: "clothes",
+					icon:"https://img.icons8.com/color/48/000000/t-shirt.png",
+					lat: 26.2,
+					long: -80.12
+				},
+				{
+					name: "Test 1",
+					title: "Title",
+					type: "house",
+					icon:"https://img.icons8.com/color/48/000000/sleeping-in-bed.png",
+					lat: 26.17,
+					long: -80.3
+				}
 			]
         },
         actions: {
@@ -94,7 +123,7 @@ const getState = (scope) => {
 				})
 				.then(update);
 				
-				
+			
 				
 			}
 			

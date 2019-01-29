@@ -1,2 +1,30 @@
 @import '~bootstrap/scss/bootstrap.scss';
 
+body{
+    background:#E6C966;
+}
+.navbar{
+    background:#2F5780;
+}
+.jumbotron{
+    background:#F0ECD8;
+};
+.list-group.item{
+    background:#E6C966;
+}
+
+.map{
+    position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 100%; // 600px/600px
+}
+/*
+.map iframe{
+    position: absolute;
+	pointer-events: none;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
+}*/
