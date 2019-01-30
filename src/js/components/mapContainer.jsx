@@ -7,10 +7,12 @@ import  mapStyles  from "./mapStyle.js";
 
 class MapContainer extends React.Component {
     
-     createInfoWindow(e, map) {
+     createInfoWindow(e, map,content) {
     const infoWindow = new window.google.maps.InfoWindow({
         position: { lat: e.latLng.lat(), lng: e.latLng.lng()},
-        content:('hello')
+        content:(content),
+        
+        pixelOffset: new window.google.maps.Size(0,-30)
     });
     
     infoWindow.open(map);
@@ -389,21 +391,21 @@ class MapContainer extends React.Component {
                                     minZoom:11.6
                                 }}
                                 
+                                
                                 onMapLoad={map => {
                                 
-                                
-                                
-                                
+                                var marker_content;
                                 var marker,i;
                                 
                                 for (i = 0; i < store.markers.length; i++) {
                                 
+                                marker_content = store.markers[i].name;
                                 
                                 
                                 marker = new window.google.maps.Marker({
                                 position: { lat: (store.markers[i].lat), lng: (store.markers[i].long) },
                                 map: map,
-                                content:'Food',
+                                info:(store.markers[i].name),
                                 icon:{url:(store.markers[i].icon)},
                                 scaledSize: new window.google.maps.Size(30, 30),
                                 title: 'Hello Istanbul!'
@@ -411,7 +413,7 @@ class MapContainer extends React.Component {
                                 
                                 marker.addListener('click', e => {
                                 
-                                this.createInfoWindow(e, map);
+                                this.createInfoWindow(e, map, this.info);
                                 
                                 });
                                
