@@ -5,7 +5,9 @@ const getState = (scope) => {
         
 				markers: [
 				{
-					name: "Test 1",
+					name: "Food Pantry",
+					address:"137 West Street",
+					phone:"(992)334-2394",
 					title: "Title",
 					type: "food",
 					icon:"https://img.icons8.com/color/48/000000/ingredients.png",
@@ -14,6 +16,8 @@ const getState = (scope) => {
 				},
 				{
 					name: "Test 1",
+					address:"2550 SW 18th Terr.",
+					phone:"(992)334-2394",
 					title: "Title",
 					type: "house",
 					icon:"https://img.icons8.com/color/48/000000/sleeping-in-bed.png",
@@ -22,6 +26,8 @@ const getState = (scope) => {
 				},
 				{
 					name: "Test 1",
+					address:"48 Church Road",
+					phone:"(992)334-2394",
 					title: "Title",
 					type: "clothes",
 					icon:"https://img.icons8.com/color/48/000000/t-shirt.png",
@@ -30,6 +36,8 @@ const getState = (scope) => {
 				},
 				{
 					name: "Test 1",
+					address:"122 Johnny Street",
+					phone:"(992)334-2394",
 					title: "Title",
 					type: "house",
 					icon:"https://img.icons8.com/color/48/000000/sleeping-in-bed.png",

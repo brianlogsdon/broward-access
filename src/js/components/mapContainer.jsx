@@ -197,7 +197,7 @@ class MapContainer extends React.Component {
         "elementType": "labels.text.fill",
         "stylers": [
             {
-                "visibility": "off"
+                "visibility": "on"
             }
         ]
     },
