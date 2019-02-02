@@ -6,18 +6,6 @@ import  mapStyles  from "./mapStyle.js";
 
 
 class MapContainer extends React.Component {
-    
-     createInfoWindow(e, map,content) {
-    const infoWindow = new window.google.maps.InfoWindow({
-        position: { lat: e.latLng.lat(), lng: e.latLng.lng()},
-        content:(content),
-        
-        pixelOffset: new window.google.maps.Size(0,-30)
-    });
-    
-    infoWindow.open(map);
-  }
-  
 	render() {
 		return (
     <div className="row">
@@ -199,7 +187,7 @@ class MapContainer extends React.Component {
         "elementType": "labels.text.fill",
         "stylers": [
             {
-                "visibility": "on"
+                "visibility": "off"
             }
         ]
     },
@@ -394,33 +382,40 @@ class MapContainer extends React.Component {
                                 
                                 onMapLoad={map => {
                                 
-                                var marker_content;
+                                
                                 var marker,i;
+                                var infowindow = new window.google.maps.InfoWindow();
                                 
                                 for (i = 0; i < store.markers.length; i++) {
                                 
-                                marker_content = store.markers[i].name;
+                                
                                 
                                 
                                 marker = new window.google.maps.Marker({
                                 position: { lat: (store.markers[i].lat), lng: (store.markers[i].long) },
                                 map: map,
-                                info:(store.markers[i].name),
+                                info:store.markers[i].name,
                                 icon:{url:(store.markers[i].icon)},
                                 scaledSize: new window.google.maps.Size(30, 30),
                                 title: 'Hello Istanbul!'
                                 });
                                 
-                                marker.addListener('click', e => {
                                 
-                                this.createInfoWindow(e, map, this.info);
-                                
-                                });
-                               
-                                
+                                window.google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                                return function () {
+                                infowindow.setContent('<div id="info-bubble" style="padding:10px;border-radius:30px;max-width:260px;"><img src="' + store.markers[i].icon + '" style="display:block;margin-bottom:10px;max-width:100%;"><h6>' +store.markers[i].name+'<br />'+ store.markers[i].address +'<br />'+'Phone:'+store.markers[i].phone +'</h5><br /><span> <p>' +  store.markers[i].info +'</span></p>'  );
+                                infowindow.open(map, marker);
+                                };
+                                })(marker, i)); 
+                                }
                                 
                                 }
-                            }}
+                                
+                                
+                                
+                                
+                                
+                            }
                             />
                                     </div>
                             );

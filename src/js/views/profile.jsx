@@ -51,9 +51,10 @@ return (
                     <thead>
                     
                         <tr>
-                            <th scope="col">type</th>
+                            <th scope="col"></th>
                             <th scope="col">Address</th>
                             <th scope="col">Phone</th>
+                            <th scope="col">Info</th>
                             
                         </tr>
                     </thead>
@@ -65,6 +66,7 @@ return (
                             <th scope="row"><img src={item.icon} alt=""></img></th>
                             <td>{item.address}</td>
                             <td>{item.phone}</td>
+                            <td>{item.info}</td>
                         </tr>
                         
                       ));

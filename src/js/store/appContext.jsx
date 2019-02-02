@@ -11,7 +11,7 @@ const Store = (PassedComponent) =>{
         }
         
         componentDidMount() {
-            //fetch contacts from api
+            //fill up store with markers from database
             
             
             fetch('https://ancient-reaches-29695.herokuapp.com/api/contacts/')
