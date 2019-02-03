@@ -10,8 +10,8 @@ render() {
             <div className="carousel-item active mh-100">
                 <img className="" src="https://www.kentucky.com/latest-news/m7v9ev/picture43785177/alternates/LANDSCAPE_1140/lxonl.So.79.jpeg" width="100%" height="400" alt="First slide"></img>
                 <div className="carousel-caption d-none d-md-block">
-                    <h5 className="bg-secondary" >Broward County declares cold weather emergency</h5>
-                    <p className="bg-secondary">Donated blankets at the Catholic Action Center’s GodsNet will be handed out Tuesday night to homeless people who decline to move indoors. Extra coats also will be provided.</p>
+                    <h5 className="bg-dark" >Broward County declares cold weather emergency</h5>
+                    <p className="bg-dark">Donated blankets at the Catholic Action Center’s GodsNet will be handed out Tuesday night to homeless people who decline to move indoors. Extra coats also will be provided.</p>
                 </div>
             </div>
             <div className="carousel-item mh-100">

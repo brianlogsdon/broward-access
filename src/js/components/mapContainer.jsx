@@ -6,14 +6,68 @@ import  mapStyles  from "./mapStyle.js";
 
 
 class MapContainer extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+        
+            markers:[],
+            markerVisible:true
+        };
+        
+        
+    }
+
+handleClick(category) {
+    for (let i = 0; i < this.state.markers.length; i++) {
+                                let marker = this.state.markers[i];
+                                // If is same category or category not picked
+                                if (category =="all"){
+                                    marker.setVisible(true);
+                                }
+                                else if (marker.category == category ) {
+                                marker.setVisible(true);
+                                }
+                                // Categories don't match 
+                                else {
+                                    marker.setVisible(false);
+                                }
+                                }
+  }
+                            /*    filterMarkers(category) {
+                                for (let i = 0; i < this.state.markers.length; i++) {
+                                let marker = this.state.markers[i];
+                                // If is same category or category not picked
+                                if (marker.category == category || category.length === 0) {
+                                marker.setVisible(true);
+                                }
+                                // Categories don't match 
+                                else {
+                                    marker.setVisible(false);
+                                }
+                                }
+}; */
+    
 	render() {
 		return (
     <div className="row">
                         
         <Context.Consumer>
+            
             {({ store }) => {
+            
+            
                                 return(
-                                    <div className=" container  ">
+                                    <div className=" container">
+                                    
+                                        <div className="row my-2">
+                                            <button onClick={this.handleClick.bind(this, "all")} type="button" className=" btn btn-secondary col-2 mx-auto " >All</button>
+                                            <button onClick={this.handleClick.bind(this, "shelter")} type="button" className="btn btn-secondary col-2 mx-auto">Shelters</button>
+                                            <button onClick={this.handleClick.bind(this, "food")} type="button" className="btn btn-secondary col-2 mx-auto">Food </button>
+                                            <button onClick={this.handleClick.bind(this, "clothes")} type="button" className="btn btn-secondary col-2 mx-auto">Clothing</button>
+                                        </div>
+                                    
+                                    
+                                    
                                         <Map
                                     id="myMap"
                                     options={{
@@ -22,6 +76,7 @@ class MapContainer extends React.Component {
                                     mapTypeControl:false,
                                     center: { lat: 26.157,
                                     lng: -80.2 },
+                                    visible:true,
                                    styles: [
     {
         "featureType": "administrative.neighborhood",
@@ -385,6 +440,10 @@ class MapContainer extends React.Component {
                                 
                                 var marker,i;
                                 var infowindow = new window.google.maps.InfoWindow();
+                                map.markers = [];
+                                window.console.log(this.state.markers);
+                                
+                                
                                 
                                 for (i = 0; i < store.markers.length; i++) {
                                 
@@ -394,12 +453,15 @@ class MapContainer extends React.Component {
                                 marker = new window.google.maps.Marker({
                                 position: { lat: (store.markers[i].lat), lng: (store.markers[i].long) },
                                 map: map,
+                                category:store.markers[i].category,
+                                visible:(this.state.markerVisible),
                                 info:store.markers[i].name,
                                 icon:{url:(store.markers[i].icon)},
                                 scaledSize: new window.google.maps.Size(30, 30),
                                 title: 'Hello Istanbul!'
                                 });
                                 
+                                this.state.markers.push(marker);
                                 
                                 window.google.maps.event.addListener(marker, 'click', (function (marker, i) {
                                 return function () {
@@ -411,12 +473,11 @@ class MapContainer extends React.Component {
                                 
                                 }
                                 
-                                
-                                
-                                
-                                
                             }
-                            />
+                            >
+                                           
+                            
+                                        </Map>
                                     </div>
                             );
                             }}</Context.Consumer>

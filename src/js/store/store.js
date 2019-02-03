@@ -11,8 +11,8 @@ const getState = (scope) => {
 					info:'Soup Kitchen Daily, 4:00 pm – 5:00 pm',
 					category: "food",
 					icon:"https://img.icons8.com/color/48/000000/ingredients.png",
-					lat: 26.15,
-					long: -80.1373
+					lat: 26.169366,
+					long: -80.154300
 				},
 				{
 					name: "SALVATION ARMY - PLYMOUTH COLONY HOLLYWOOD",
@@ -21,8 +21,8 @@ const getState = (scope) => {
 					info:'Hours of operation: Monday through Friday 11am to 6:30pm Fees charged: Self-Pay, Full: HUD 30% of income or $300 which ever is less Intake procedure: Photo ID, proof of Income, birth certificates, Social Security cards and info on progress from previous shelter required Eligibility requirements: Must be a homeless working family (have a child under age 18) and referred by another agency or in Salvation Army shelter',
 					category: "shelter",
 					icon:"https://img.icons8.com/color/48/000000/sleeping-in-bed.png",
-					lat: 26.12,
-					long: -80.136
+					lat: 26.032642,
+					long: -80.147243
 				},
 				{
 					name: "AKAdemic Foundation, Inc.",

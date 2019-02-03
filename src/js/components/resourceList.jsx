@@ -4,9 +4,10 @@ class ResourceList extends React.Component {
 	render() {
 		return (
     <div>
-        <h3>Quick Resource Links</h3>
+        
 	
-        <div>
+        <div className="card">
+            <div className="card-header bg-secondary text-white">Quick Resource Links</div>
             <ul className="list-group list-group-flush">
                 <li className="list-group-item list-group-item-warning">Broward County Homeless Guide</li>
                 <li className="list-group-item list-group-item-warning">Hollywood Homless Reference Guide</li>
