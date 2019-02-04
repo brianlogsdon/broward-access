@@ -465,7 +465,7 @@ handleClick(category) {
                                 
                                 window.google.maps.event.addListener(marker, 'click', (function (marker, i) {
                                 return function () {
-                                infowindow.setContent('<div id="info-bubble" style="padding:10px;border-radius:30px;max-width:260px;"><img src="' + store.markers[i].icon + '" style="display:block;margin-bottom:10px;max-width:100%;"><h6>' +store.markers[i].name+'<br />'+ store.markers[i].address +'<br />'+'Phone:'+store.markers[i].phone +'</h5><br /><span> <p>' +  store.markers[i].info +'</span></p>'  );
+                                infowindow.setContent('<div id="info-bubble" style="padding:10px;border-radius:30px;max-width:260px;"><img src="' + store.markers[i].icon + '" style="display:block;margin-bottom:10px;max-width:100%;"><h6>' +store.markers[i].name+'<br />'+ store.markers[i].address +'<br />'+'Phone:'+store.markers[i].phone +'</h5><br /><hr /><span> <p>' +  store.markers[i].info +'</span></p><br /><button >Save to My Profile</button>'  );
                                 infowindow.open(map, marker);
                                 };
                                 })(marker, i)); 

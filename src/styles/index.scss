@@ -12,12 +12,28 @@ body{
 .list-group.item{
     background:#E6C966;
 }
-
+.card-body{
+	background:#2F5780;
+}
+.home-map{
+    background:#55534D;
+}
+.map-header{
+    color:#F0F0F0;
+}
 .map{
     position: relative;
 	width: 100%;
 	height: 0;
 	padding-bottom: 100%; // 600px/600px
+}
+
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #2F5780; /* old IE */
+    background-color: #2F5780; /* Modern Browsers */
 }
 /*
 .map iframe{

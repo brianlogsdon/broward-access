@@ -39,7 +39,7 @@ class Map extends Component {
   render() {
     return (
         <div className= "container">
-            <div className="map" style={{ width: '600', height: '75vh' }} id={this.props.id} />
+            <div className="map" style={{ width: '600', height: '50vh' }} id={this.props.id} />
         </div>
     );
   }
