@@ -27,7 +27,7 @@ export default class Home extends React.Component {
                         <div className="row">
                             <div className ="col-6">
                                 <h1 className="display-4">The Resources You Need, On One Site</h1>
-                                <p className="lead">The mission of Broward Access is to provide all homeless Broward citizens an accessible and simple way to find the help they need. </p>   
+                                <p className="lead">The mission of Broward Access is to provide all citizens of Broward County who are struggling with low income or homelessness, an accessible and easy way to find the help they need. </p>   
                             </div>
                             <div className ="col-6">
                                 <img className="d-block mh-100 w-100" src={hands} alt="First slide"></img>
@@ -35,6 +35,11 @@ export default class Home extends React.Component {
                         </div>
                     </div>  
                 </div>
+                
+                <div className="container my-2">
+                    <Carousel />
+                </div>
+                <hr />
                 
                 <div className="row home-map container-fluid m-0">
                     <div className="col-6 ">
@@ -57,29 +62,7 @@ export default class Home extends React.Component {
                 </div>
                 
                 
-                <div className="row container-fluid"> 
-                    <div className="my-2 col-4 ">
-                        <div className="card cardStyle">
-                            <img
-                            className="card-img-top"
-                            src="https://www.disabilitynewsservice.com/wp-content/uploads/2016/05/Peer.support.jpg"
-                            alt="Card image cap"
-                        />
-                            <div className="card-body ">
-                                <h5 className="card-title text-white">Hello</h5>
-                                <p className="card-text text-white">dsfdgf</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className=" my-2 col-4">
-                        <Carousel />
-                    </div>
-                    <div className=" my-2 col-4">
-                        <ResourceList />
-                    
-                    </div>
-                   
-                </div> 
+                
                 
                 
                 

@@ -430,8 +430,8 @@ handleClick(category) {
         ]
     }
 ],
-                                    zoom: 11.6,
-                                    minZoom:11.6
+                                    zoom: 11.9,
+                                    minZoom:11
                                 }}
                                 
                                 

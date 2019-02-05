@@ -10,12 +10,12 @@ return (
         <Navbar />
         <div className="container">
             <ul
-						className="nav nav-pills mb-3 m-2 justify-content-center"
+						className="nav nav-pills  mb-3 m-2 justify-content-center"
 						id="pills-tab"
 						role="tablist">
                 <li className="nav-item">
                     <a
-								className="nav-link active"
+								className="nav-link  active"
 								id="pills-saved-tab"
 								data-toggle="pill"
 								href="#pills-saved"
