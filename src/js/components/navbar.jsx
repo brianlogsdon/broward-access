@@ -65,19 +65,6 @@ const Navbar = () => {
                         <div className="modal-body">
                             <LoginForm />
                         </div>
-                        <div className="modal-footer">
-                            <button
-									type="button"
-									className="btn btn-secondary"
-									data-dismiss="modal">
-									Cancel
-                            </button>
-                            <button
-									type="button"
-									className="btn btn-primary">
-									Log in
-                            </button>
-                        </div>
                     </div>
                 </div>
             </div>
