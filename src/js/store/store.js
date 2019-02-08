@@ -160,33 +160,10 @@ const getState = (scope) => {
             // Remember to use the scope: scope.state.store & scope.setState()
             
             
-            addContact: (name,email,phone,address,props) => {
+            addLocation: (name,address,phone,info,location) => {
 				//new contact info from add contact form
-				let newContact={full_name:name,email:email,agenda_slug:"downtown_vi",address:address,phone:phone};
 				
-				//function to update the store after new contact is added to database
-				function update() {
-					fetch('https://ancient-reaches-29695.herokuapp.com/api/contacts/')
-					.then(response=>(response.json()))
-					.then(data => {
-						window.console.log(data);
-						let store = scope.state.store;
-						store.contacts=data;
-						props.history.push("/");
-						scope.setState({store});
-							
-					})
-					.catch(error=> window.console.log('error'));
-					}
-				//put new contact into the database and then call update function
-				fetch('https://ancient-reaches-29695.herokuapp.com/api/contacts/', {
-				method: "post",
-				headers: {"Content-type": 'application/json'},
-				body: JSON.stringify(newContact)
-				})
-				.then(update);
-				
-           
+				alert(location);
 			},
 			
 			
