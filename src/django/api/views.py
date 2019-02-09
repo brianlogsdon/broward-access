@@ -1,9 +1,10 @@
 from django.shortcuts import render
+from django.contrib.auth import get_user_model
 import json
-from rest_framework import status
+from rest_framework import status, viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from api.models import Contact, ContactSerializer
+from api.models import Contact, ContactSerializer, UserSerializer
 
 class ContactsView(APIView):
     def get(self, request, contact_id=None):
@@ -34,3 +35,7 @@ class ContactsView(APIView):
         
         return Response(status=status.HTTP_204_NO_CONTENT)
         
+    
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = get_user_model().objects.all()
+    serializer_class = UserSerializer

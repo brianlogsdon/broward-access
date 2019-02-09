@@ -8,7 +8,7 @@ router = routers.DefaultRouter()
 router.register('users', UserViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
     path('contacts/<int:contact_id>', views.ContactsView.as_view(), name='id-contacts'),
     path('contacts/', views.ContactsView.as_view(), name='all-contacts'),
 ]
