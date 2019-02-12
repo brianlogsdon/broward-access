@@ -42,7 +42,7 @@ export default class Home extends React.Component {
                 <hr />
                 
                 <div className="row home-map container-fluid m-0">
-                    <div className="col-6 ">
+                    <div className="home-map-content col-6 ">
                         <h1 className="display-3 map-header">Interactive Map</h1>
                         <p className="display-6 map-header">Use our interactive map to view all of the availible resources in Broward County. Create a profile to save and add resource locations from the map. </p>
                         <ul className="map-header">

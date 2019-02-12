@@ -2,6 +2,7 @@ import React from 'react';
 import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Context } from "../store/appContext.jsx";
+import { Link } from "react-router-dom";
 
 class MapModal extends React.Component{
     constructor(){
@@ -54,15 +55,12 @@ class MapModal extends React.Component{
                         <div className="modal-footer">
                         
                             <Context.Consumer>{({actions,store }) => {
-                            
-                            
-                            
                             return (
                             
                                 <div>
                                     <button onClick={()=>{actions.addLocation(document.querySelector("#name").value,
                                     document.querySelector("#address").value,document.querySelector("#phone").value,
-                                    document.querySelector("#info").value, this.props.coords); }}
+                                    document.querySelector("#info").value, this.props.lat, this.props.lng, this.props); }}
                                     type="button" className="btn btn-primary">Save!</button>
                                     
                                     
@@ -92,7 +90,8 @@ MapModal.propTypes = {
     onClose: PropTypes.func,
     show: PropTypes.bool,
     match: PropTypes.object,
-    coords:PropTypes.object,
+    lat:PropTypes.number,
+    lng:PropTypes.number,
     key:PropTypes.number
 };
 
