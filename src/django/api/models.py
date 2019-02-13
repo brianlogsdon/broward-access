@@ -23,13 +23,12 @@ class ContactSerializer(serializers.ModelSerializer):
         
 class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='profile')
-    saved_location = models.ManyToManyField(Contact)
-    objects = models.Manager()
+    saved_locations = models.ManyToManyField(Contact)
 
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserProfile
-        fields = ('saved_location',)
+        fields = ('saved_locations',)
         
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     profile = UserProfileSerializer(required=True)
@@ -42,10 +41,16 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
     def create(self, validated_data):
         profile_data = validated_data.pop('profile')
         password = validated_data.pop('password')
-        user = get_user_model(**validated_data)
+        user = User(**validated_data)
         user.set_password(password)
         user.save()
-        UserProfile.objects.create(user=user, **profile_data)
+        
+        new_profile = UserProfile.objects.create(user=user)
+        location = profile_data["saved_locations"]
+        for x in location:
+            new_profile.saved_locations.add(x)
+        new_profile.save()
+        
         return user
         
     def update(self, instance, validated_data):
@@ -55,7 +60,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         instance.email = validated_data.get('email', instance.email)
         instance.save()
         
-        profile.saved_location = profile_data.get('saved_location', profile.saved_location)
+        profile.saved_locations.set(profile_data.get('saved_locations', profile.saved_locations))
         profile.save()
         
         return instance
