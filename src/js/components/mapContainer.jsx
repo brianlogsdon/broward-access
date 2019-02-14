@@ -55,7 +55,12 @@ handleClick(category) {
                                 return(
                                 
                                     <div className=" container">
-                                        
+                                        <div className="card">
+                                            <div className="card-body">
+                                            Click on a marker to see more information about that location.<br/>
+                                            To add a new location, click and hold for 4 seconds on area you want to add the marker, enter the inforrmation, and press save! 
+                                            </div>
+                                        </div>
                                         <div className="row my-2">
                                             <button onClick={this.handleClick.bind(this, "all")} type="button" className=" btn btn-secondary col-2 mx-auto " >All</button>
                                             <button onClick={this.handleClick.bind(this, "shelter")} type="button" className="btn btn-secondary col-2 mx-auto"><img src="https://img.icons8.com/color/30/000000/sleeping-in-bed.png"></img>Shelters</button>
@@ -84,25 +89,20 @@ handleClick(category) {
                                 
                                 //listener for click hold down to add a new marker
                                 map.addListener('mouseup', function() {
-                                mouseIsDown = false;
+                                    mouseIsDown = false;
                                 });
-                                
-                                
-                                
+    
                                 map.addListener('mousedown', function(e) {
+                                    mouseIsDown = true;
                                 
-                                
-                                mouseIsDown = true;
-                                
-                                //after mouse held down for 4 sec call modal for new location info
-                                setTimeout(function() {
-                                    if(mouseIsDown){
+                                    //after mouse held down for 4 sec call modal for new location info
+                                    setTimeout(function() {
+                                        if(mouseIsDown){
                                         placeMarker(e.latLng,map);
                                     }
-                                }, 4000);
-                                
-                                
+                                    }, 4000);
                                 });
+                                
                                 //open the new location modal and set the lat and long of click state
                                 var placeMarker =(location,map)=>{
                                     this.setState({showModal:true,lat:location.lat(), lng:location.lng()});
@@ -110,19 +110,12 @@ handleClick(category) {
                                 };
                                 
                                
-                                //
                                 var marker,i;
                                 var infowindow = new window.google.maps.InfoWindow();
                                 map.markers = [];
                                 
-                                
-                                
                                 //loop through locations in the store and place markers
                                 for (i = 0; i < store.markers.length; i++) {
-                               
-                             let myFunction=(name)=>{
-                                                alert(name);
-                                            };
                                
                                 //create markers
                                     marker = new window.google.maps.Marker({
@@ -156,25 +149,19 @@ handleClick(category) {
                                             
                                             
                                             
-                                             //add listener to button in info window to save location 
+                                             //first add domlistener to info window than add listener to button in info window to save location 
                                            window.google.maps.event.addDomListenerOnce(infowindow, 'domready', function() {
                                                 var but =document.getElementById("button");
                                                 but.addEventListener("click", 
                                                     function(){
+                                                    //action function in store to save location
                                                         actions.saveLocation(store.markers[i].name);
-                                                        
-                                                        //window.location.reload();
                                                     });
-                                                    
                                             });
-
                                         };
-                                        
                                         })(marker, i));
                                         
-
-                                 
-                                }
+                                    }
                                 
                                 }
                                 

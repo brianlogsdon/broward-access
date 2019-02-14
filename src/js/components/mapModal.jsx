@@ -60,7 +60,7 @@ class MapModal extends React.Component{
                                 <div>
                                     <button onClick={()=>{actions.addLocation(document.querySelector("#name").value,
                                     document.querySelector("#address").value,document.querySelector("#phone").value,
-                                    document.querySelector("#info").value, this.props.lat, this.props.lng, this.props); }}
+                                    document.querySelector("#info").value, this.props.lat, this.props.lng, this.props); this.props.onClose();}}
                                     type="button" className="btn btn-primary">Save!</button>
                                     
                                     

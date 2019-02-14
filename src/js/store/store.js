@@ -522,8 +522,8 @@ const getState = (scope) => {
 				
 				
 				let store = scope.state.store;
-				let newLocation={name:name,address:address,phone:phone,info:info,icon:"https://img.icons8.com/material-two-tone/30/000000/info.png",lat:lat,long:long};
-				props.history.push("/profile");
+				let newLocation={name:name,address:address,phone:phone,info:info,icon:"https://img.icons8.com/ios/35/000000/so-so-filled.png",lat:lat,long:long};
+				//props.history.push("/profile");
 				store.markers.push(newLocation);
 				scope.setState({ store });
 				//window.location.reload();
@@ -533,7 +533,7 @@ const getState = (scope) => {
 			saveLocation:(name,props)=>{
 				//function to update the store after new contact is added to database
 				
-				//props.history.push("/profile");
+				
 				let store = scope.state.store;
 				let newLocation=name;
 				//props.history.push("/profile");
