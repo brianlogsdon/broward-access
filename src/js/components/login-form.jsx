@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
                 </button>
             </div>
             <div className="col text-right">
-                <Link className="nav-link text-muted" to="/register">
+                <Link className="nav-link text-muted" to="/register" onClick="$('.modal').modal('hide')">
 					Create Account
                 </Link>
             </div>
