@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 
-//create your first component
+
 const Card = props => {
 	return (
     <div className="col-lg-3 col-sm-6 mb-2 mx-auto">

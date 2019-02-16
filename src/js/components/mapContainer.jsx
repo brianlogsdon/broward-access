@@ -58,7 +58,7 @@ handleClick(category) {
                                         <div className="card">
                                             <div className="card-body">
                                             Click on a marker to see more information about that location.<br/>
-                                            To add a new location, click and hold for 4 seconds on area you want to add the marker, enter the inforrmation, and press save! 
+                                            To add a new location, click and hold for 4 seconds on area you want to add the marker, enter the information, and press save! 
                                             </div>
                                         </div>
                                         <div className="row my-2">

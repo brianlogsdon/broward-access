@@ -14,14 +14,14 @@ const Store = (PassedComponent) =>{
             //fill up store with markers from database
             
             
-            fetch('https://ancient-reaches-29695.herokuapp.com/api/contacts/')
+            fetch('https://broward-access-api.herokuapp.com/api/contacts/')
             
             .then(response=>(response.json()))
             
            
             .then(data => {
                  let {store} = this.state;
-                 store.contacts = data;
+                 store.markers = data;
                  this.setState({store});
                  
                })
