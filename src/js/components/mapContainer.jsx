@@ -119,7 +119,7 @@ handleClick(category) {
                                
                                 //create markers
                                     marker = new window.google.maps.Marker({
-                                    position: { lat: (store.markers[i].lat), lng: (store.markers[i].long) },
+                                    position: { lat: parseFloat(store.markers[i].lat), lng: parseFloat(store.markers[i].long) },
                                     map: map,
                                     category:store.markers[i].category,
                                     icon:{url:(store.markers[i].icon)},
@@ -155,7 +155,7 @@ handleClick(category) {
                                                 but.addEventListener("click", 
                                                     function(){
                                                     //action function in store to save location
-                                                        actions.saveLocation(store.markers[i].name);
+                                                        actions.saveLocation(store.markers[i].id);
                                                     });
                                             });
                                         };

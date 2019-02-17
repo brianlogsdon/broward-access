@@ -3,12 +3,9 @@ const getState = (scope) => {
         store: {
         //this is where your store data lives
         
-				markers: [
+				markers: [],
 				
-				
-				
-			],
-			saved:[],
+            loggedin:[],
 			styles:[
     {
         "featureType": "administrative.neighborhood",
@@ -367,20 +364,91 @@ const getState = (scope) => {
             //(Arrow) Functions that update the Store
             // Remember to use the scope: scope.state.store & scope.setState()
             
-            
+            newUser:(userName,email,password,props)=>{
+				
+				let newUser={username:userName,first_name: "",
+                last_name: "",email:email,password:password,profile:{saved_locations:[1]}};
+                
+				window.console.log(newUser);
+				
+				//update new user in the database and then call update function
+				fetch('https://broward-access-api.herokuapp.com/api/users/', {
+				method: 'post',
+				headers: {"Content-type": 'application/json'},
+				body: JSON.stringify(newUser)
+				});
+				//.then(login);
+				
+			
+				
+			},
+			
+			login:(username,password,props)=>{
+                let user = {username: username,password: password};
+                
+                
+                //update contact in the database and then call update function
+                
+				fetch('https://broward-access-api.herokuapp.com/api/token/', {
+				method: 'post',
+				headers: {"Content-type": 'application/json'},
+				body: JSON.stringify(user)
+				})
+				
+				.then(response=>(response.json()))
+				.then(data => {
+						
+						let store = scope.state.store;
+						store.loggedin=data;
+						window.console.log(store.loggedin);
+						
+						
+						props.history.push("/");
+						
+						//scope.setState({store});
+							
+					})
+				.catch(error=>{ 
+                    throw(error.message);
+				}
+				);
+				
+			},
+			
+			
+			
             addLocation: (name,address,phone,info,lat,long,props) => {
-				//new contact info from add contact form
-				//let newLocation={name:name,address:address,phone:phone,info:info,icon:"https://img.icons8.com/material-two-tone/30/000000/info.png"};
-				//alert(lat);
-				//alert(long);
-				
-				
 				let store = scope.state.store;
 				let newLocation={name:name,address:address,phone:phone,info:info,icon:"https://img.icons8.com/ios/35/000000/so-so-filled.png",lat:lat,long:long};
-				//props.history.push("/profile");
-				store.markers.push(newLocation);
-				scope.setState({ store });
-				//window.location.reload();
+				let token =store.loggedin.access;
+				//function to update the store after new contact is added to database
+				/*function update() {
+					fetch('https://broward-access-api.herokuapp.com/api/contacts/')
+					.then(response=>(response.json()))
+					.then(data => {
+						window.console.log(newLocation);
+						let store = scope.state.store;
+						store.contacts=data;
+						props.history.push("/");
+						scope.setState({store});
+							
+					})
+					.catch(error=> window.console.log('error'));
+					}*/
+					
+				//update contact in the database and then call update function
+				fetch('https://broward-access-api.herokuapp.com/api/contacts/', {
+				method: 'post',
+				withCredentials: true,
+				
+				headers: {"Authorization": "Bearer "+token,
+				"Content-type": 'application/json'},
+				body: JSON.stringify(newLocation)
+				});
+				//.then(update);
+				
+				
+				
 			},
 			
 			

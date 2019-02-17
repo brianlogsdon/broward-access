@@ -2,6 +2,8 @@ import React from "react";
 import LoginForm from "./login-form.jsx";
 import { Link } from "react-router-dom";
 import  logo  from "../../img/BrowardAccess.png";
+import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 //create your first component
 const Navbar = () => {
@@ -73,4 +75,9 @@ const Navbar = () => {
 	);
 };
 
-export default Navbar;
+
+Navbar.propTypes = {
+    history: PropTypes.object
+    
+};
+export default withRouter(Navbar);

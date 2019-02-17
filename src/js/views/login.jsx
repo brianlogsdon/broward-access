@@ -1,11 +1,14 @@
 import React from "react";
 import Navbar from "../components/navbar.jsx";
 import LoginForm from "../components/login-form.jsx";
+import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 class Login extends React.Component {
 	render() {
 		return (
-    <div className="container-fluid mx-auto">
+    <div >
         <Navbar />
         <div className="row">
             <div className="jumbotron mx-auto my-4">
@@ -21,5 +24,8 @@ class Login extends React.Component {
 		);
 	}
 }
-
-export default Login;
+Login.propTypes = {
+    history: PropTypes.object
+    
+};
+export default withRouter(Login);

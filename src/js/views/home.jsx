@@ -11,6 +11,7 @@ import browResourceGuide from "../../img/BrowardHomeless.png";
 import resourceImg from "../../img/resources.png";
 import Card from "../components/card.jsx";
 
+
 export default class Home extends React.Component {
     constructor(){
         super();

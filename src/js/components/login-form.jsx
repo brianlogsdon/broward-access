@@ -1,9 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext.jsx";
+import {withRouter} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 class LoginForm extends React.Component {
 	render() {
 		return (
+    <Context.Consumer>
+            
+            
+            
+        {({ actions,store }) => {
+            
+            
+return(
     <div className="container-fluid m-0 p-0">
         <div className="row m-0 p-0">
             <form>
@@ -20,9 +31,9 @@ class LoginForm extends React.Component {
         <hr />
         <div className="row">
             <div className="col">
-                <button type="button" className="btn btn-primary mr-1">
-					Log in
-                </button>
+                <button onClick={()=>{actions.login(document.querySelector("#usernameInput").value,
+                                    document.querySelector("#passwordInput").value, this.props); }}
+                                    data-dismiss="modal" type="button" className="btn btn-primary">Login</button>
                 <button type="button" className="btn btn-secondary" data-dismiss="modal">
 					Cancel
                 </button>
@@ -34,8 +45,17 @@ class LoginForm extends React.Component {
             </div>
         </div>
     </div>
+    
+     );
+                            }}</Context.Consumer>
+    
 		);
 	}
 }
-
-export default LoginForm;
+LoginForm.propTypes = {
+    history: PropTypes.object,
+    
+    show: PropTypes.bool,
+    match: PropTypes.object
+};
+export default withRouter(LoginForm);
