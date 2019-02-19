@@ -8,6 +8,18 @@ class Profile extends React.Component {
 return (
     <div>
         <Navbar />
+        
+        <Context.Consumer>
+            {({ store, actions }) => {
+                if(store.loggedin.length<1){
+return(
+    <div>
+        <h1>Hello</h1>
+    </div>
+);}
+else{
+return(
+    <div>
         <div className="container">
             <ul
 						className="nav nav-pills  mb-3 m-2 justify-content-center"
@@ -52,6 +64,7 @@ return (
                     
                         <tr>
                             <th scope="col"></th>
+                            <th scope="col">Name</th>
                             <th scope="col">Address</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Info</th>
@@ -61,9 +74,18 @@ return (
                     <tbody>
                         <Context.Consumer>
                             {({ store }) => {
-                    return(store.markers.map((item, index)=>
+                            let userSaved=store.loggedin.profile.saved_locations;
+                            window.console.log(userSaved);
+                            let savedLocations =[]; 
+                            for(let i=0; i<userSaved.length; i++){
+                            let foundLocations=store.markers.find(item=>item.id ===userSaved[i]);
+                            savedLocations.push(foundLocations);
+                            }
+                            
+                    return(savedLocations.map((item, index)=>
                         <tr key ={index}>
                             <th scope="row"><img src={item.icon} alt=""></img></th>
+                            <td>{item.name}</td>
                             <td>{item.address}</td>
                             <td>{item.phone}</td>
                             <td>{item.info}</td>
@@ -82,22 +104,36 @@ return (
 						aria-labelledby="pills-added-tab">
 				
                 <table className="table table-striped">
+                
                     <thead>
+                    
                         <tr>
-                            <th scope="col">Type</th>
+                            <th scope="col"></th>
+                            <th scope="col">Name</th>
                             <th scope="col">Address</th>
                             <th scope="col">Phone</th>
+                            <th scope="col">Info</th>
                             
                         </tr>
                     </thead>
                     <tbody>
                         <Context.Consumer>
                             {({ store }) => {
-                    return(store.markers.map((item, index)=>
+                            let userSaved=store.loggedin.profile.saved_locations;
+                            window.console.log(userSaved);
+                            let savedLocations =[]; 
+                            for(let i=0; i<userSaved.length; i++){
+                            let foundLocations=store.markers.find(item=>item.id ===userSaved[i]);
+                            savedLocations.push(foundLocations);
+                            }
+                            
+                    return(savedLocations.map((item, index)=>
                         <tr key ={index}>
                             <th scope="row"><img src={item.icon} alt=""></img></th>
+                            <td>{item.name}</td>
                             <td>{item.address}</td>
                             <td>{item.phone}</td>
+                            <td>{item.info}</td>
                         </tr>
                         
                       ));
@@ -106,6 +142,12 @@ return (
                 </table>		
             </div>
         </div>
+    </div>
+               );
+             }}
+							
+						}
+        </Context.Consumer>
     </div>
 		);
 	}

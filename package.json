@@ -49,6 +49,7 @@
     "gh-pages": "^2.0.1",
     "google-map-react": "^1.1.2",
     "jquery": "^3.2.1",
+    "jwt-decode": "^2.2.0",
     "moment": "^2.19.4",
     "popper.js": "^1.14.3",
     "prop-types": "^15.6.1",
