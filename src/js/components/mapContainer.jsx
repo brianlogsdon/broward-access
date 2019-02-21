@@ -1,10 +1,10 @@
 import React from "react";
 import { Context } from "../store/appContext.jsx";
-import Map from "./map.js";
+import Map from "./map.jsx";
 import  MapModal from "./mapModal.jsx";
 import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 class MapContainer extends React.Component {
     constructor(props){
@@ -66,6 +66,7 @@ handleClick(category) {
                                             <button onClick={this.handleClick.bind(this, "shelter")} type="button" className="btn btn-secondary col-2 mx-auto"><img src="https://img.icons8.com/color/30/000000/sleeping-in-bed.png"></img>Shelters</button>
                                             <button onClick={this.handleClick.bind(this, "food")} type="button" className="btn btn-secondary col-2 mx-auto"><img src="https://img.icons8.com/color/30/000000/ingredients.png"></img> Food </button>
                                             <button onClick={this.handleClick.bind(this, "clothes")} type="button" className="btn btn-secondary col-2 mx-auto"> <img src="https://img.icons8.com/color/30/000000/t-shirt.png"></img> Clothing</button>
+                                            <button onClick={this.handleClick.bind(this, "user")} type="button" className=" btn btn-secondary col-2 mx-auto " ><img src="https://img.icons8.com/color/35/000000/conference-call.png"></img>User Made</button>
                                         </div>
                                 
                                         <Map
@@ -79,7 +80,7 @@ handleClick(category) {
                                     lng: -80.2 },
                                     visible:true,
                                    styles: store.styles,
-                                    zoom: 11.9,
+                                    zoom: 12.5,
                                     minZoom:11
                                 }}
                                 
@@ -155,7 +156,7 @@ handleClick(category) {
                                                 but.addEventListener("click", 
                                                     function(){
                                                     //action function in store to save location
-                                                        actions.saveLocation(store.markers[i].id);
+                                                        actions.saveLocation(store.markers[i].id,this.props);
                                                     });
                                             });
                                         };
@@ -187,7 +188,8 @@ handleClick(category) {
 
 
 MapContainer.propTypes = {
-    history: PropTypes.object
+    history: PropTypes.object,
+    match: PropTypes.object
     
 };
 export default withRouter(MapContainer);

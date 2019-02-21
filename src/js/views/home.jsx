@@ -56,7 +56,7 @@ export default class Home extends React.Component {
 			text={"If you are experiencing homelessness in Broward County, please call (954) 563-4357 to learn about what resources are available to you."}
 			button={"Learn More"}
 			image={"https://explorehealthcareers.org/wp-content/uploads/2016/11/rehabilitation_counselor.jpg"}
-			link={"/map"}
+			link={"resource"}
 		/>
                         <Card
 			
@@ -64,7 +64,7 @@ export default class Home extends React.Component {
 			text={"The Broward County Sheriff's office has put out a comprehensive guide to resources available to the homeless community."}
 			button={"View the Guide"}
 			image={browResourceGuide}
-			link={"/map"}
+			link={"/resource"}
 		/>
                     </div>     
                 </div>
@@ -76,7 +76,7 @@ export default class Home extends React.Component {
                 
                 <div className="row home-map container-fluid m-0">
                     <div className="home-map-content col-6 ">
-                        <h1 className="display-3 map-header">Interactive Map</h1>
+                        <h1 className="display-3 map-header">Resource Map</h1>
                         <p className="display-6 map-header">Use our interactive map to view all of the availible resources in Broward County. Create a profile to save and add resource locations from the map. </p>
                         <hr />
                         <ol className="map-header">

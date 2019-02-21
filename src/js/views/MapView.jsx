@@ -5,7 +5,7 @@ import Navbar from "../components/navbar.jsx";
 import MapContainer from "../components/mapContainer.jsx";
 import {withRouter} from 'react-router-dom';
 
-import  Map  from "../components/map.js";
+import  Map  from "../components/map.jsx";
 
 class MapView extends React.Component{
     

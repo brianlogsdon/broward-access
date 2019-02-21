@@ -13,8 +13,8 @@ return (
             {({ store, actions }) => {
                 if(store.loggedin.length<1){
 return(
-    <div>
-        <h1>Hello</h1>
+    <div className="container">
+        <h3 className="display-4">Please Log in or create an account to view your profile</h3>
     </div>
 );}
 else{
@@ -119,15 +119,15 @@ return(
                     <tbody>
                         <Context.Consumer>
                             {({ store }) => {
-                            let userSaved=store.loggedin.profile.saved_locations;
-                            window.console.log(userSaved);
-                            let savedLocations =[]; 
-                            for(let i=0; i<userSaved.length; i++){
-                            let foundLocations=store.markers.find(item=>item.id ===userSaved[i]);
-                            savedLocations.push(foundLocations);
-                            }
+                            let userID=store.loggedin.id;
+                            window.console.log(userID);
+                            let foundLocations =[]; 
+                            for(let i=0; i<store.markers.length; i++){
+                            if (store.markers[i].creator == userID){
+                                foundLocations.push(store.markers[i]);
+                            }}
                             
-                    return(savedLocations.map((item, index)=>
+                    return(foundLocations.map((item, index)=>
                         <tr key ={index}>
                             <th scope="row"><img src={item.icon} alt=""></img></th>
                             <td>{item.name}</td>

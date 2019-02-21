@@ -7,6 +7,7 @@ import Store from "./store/appContext.jsx";
 import Profile from "./views/profile.jsx";
 import  Login  from "./views/login.jsx";
 import Register from "./views/register.jsx";
+import Resource from "./views/resource.jsx";
 
 
 export class Layout extends React.Component {
@@ -19,7 +20,7 @@ export class Layout extends React.Component {
                             <Route exact path="/index.html" component={Home} />
                             <Route exact path="/" component={Home} />
                             <Route exact path="/home" component={Home} />
-                            
+                            <Route exact path="/resource" component={Resource} />
                             <Route exact path="/map" component={MapView} />
                             <Route exact path="/profile" component={Profile} />
                             <Route exact path="/login" component={Login} />

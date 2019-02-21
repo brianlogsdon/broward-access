@@ -35,11 +35,31 @@ const Navbar = () => {
 								Resource Map
                         </Link>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/profile">
-								Profile
-                        </Link>
-                    </li>
+                    
+                    <Context.Consumer>
+                        {({ store, actions }) => {
+                if(store.loggedin.length<1){
+                return(
+                    <div>
+                    </div>
+                        );
+                        
+                }
+                else{
+                    return(
+                    
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/profile">
+                                Profile
+                            </Link>
+                        </li>
+                   );
+                }
+							
+						}}
+                    </Context.Consumer> 
+                    
+                    
                 </ul>
             </div>
             
