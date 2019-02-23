@@ -2,13 +2,12 @@
   "name": "workspace",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://brianlogsdon.github.io/contact-management/",
   "main": "index.js",
   "scripts": {
     "c9": "webpack-dev-server --mode development --open --host $IP --port $PORT",
+    "dev-server": "webpack-dev-server --mode development --hot",
     "build": "webpack --mode development",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "node deploy-to-github.js"
   },
   "author": "",
   "license": "ISC",

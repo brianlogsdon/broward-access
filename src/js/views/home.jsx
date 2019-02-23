@@ -44,7 +44,7 @@ export default class Home extends React.Component {
                     <div className="row">
                         <Card
 			
-			title={"Find a Meal"}
+			title={"Find a shelter, meal, or clothing"}
 			text={"Use our interactive map to find a shelter, food pantry or clothing near you."}
 			button={"Go to map"}
 			image={resourceImg}
@@ -70,6 +70,7 @@ export default class Home extends React.Component {
                 </div>
                 <hr />
                 <div className="container my-2">
+                    <h3 className="text-center">Homeless News</h3>
                     <Carousel />
                 </div>
                 <hr />
@@ -82,11 +83,11 @@ export default class Home extends React.Component {
                         <ol className="map-header">
                         
                             <li>Click Log-in in the top right corner of the site to log-in or create an account</li>
-                            
+                            <br />
                             <li>Go to our Interactive map by clicking the map to the right or following the link in the navagation bar </li>
-                            
+                            <br />
                             <li>Search the map for useful resources, and save your favorites to your profile for future use</li>
-                            
+                            <br />
                             <li>If you know of anymore resources and want to help spread the word, add it to the map!</li>
                         </ol>
                     </div>
