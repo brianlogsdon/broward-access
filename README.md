@@ -13,4 +13,6 @@ https://brianlogsdon.github.io/broward-access/
 
 ## Authors
 
-* **Brian Logsdon and Scott Urueta**
+* **Brian Logsdon**
+[contributers]()
+
