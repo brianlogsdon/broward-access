@@ -6,7 +6,7 @@ The front-end is built using React.js, and the Google maps API. The backend is b
 
 ## View a demo of the application
 
-*There is some bugs with the registration page since deploying on GHpages that I am working on. In the mean time you can log-in with 
+* There is some bugs with the registration page since deploying on GHpages that I am working on. In the mean time you can log-in with 
 username: broward 
 password: broward
 
